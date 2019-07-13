@@ -34,3 +34,8 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+GamePrograming_UnityChan3D/Assets/LowpolyStreetPack/Meshes/*.FBX
+GamePrograming_UnityChan3D/Assets/LowpolyStreetPack/Meshes/Textures/*.png
+GamePrograming_UnityChan3D/Assets/LowpolyStreetPack/Meshes/Textures/*.tga
+GamePrograming_UnityChan3D/Assets/LowpolyStreetPack
+GamePrograming_UnityChan3D/Assets/Ultra Skybox Fog
