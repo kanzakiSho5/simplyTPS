@@ -11,6 +11,8 @@ public class ZombieController : MonoBehaviour {
     float myCollisionRadius;
     float targetCollisionRadius;
     Animator animator;
+    [SerializeField]
+    AudioSource source;
 
     [SerializeField]
 	private GameObject explosion;
@@ -43,10 +45,12 @@ public class ZombieController : MonoBehaviour {
             if (sqrMag > attackDistanceThreshold)
             {
                 animator.SetBool("IsWalk", false);
+                source.Stop();
                 agent.SetDestination(this.transform.position);
                 continue;
             }
             animator.SetBool("IsWalk", true);
+            source.Play();
             // ターゲットの中心にまで移動する
             agent.SetDestination(this.target.position);
         }
