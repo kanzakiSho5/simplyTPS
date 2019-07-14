@@ -31,7 +31,7 @@ public class ScoreManager : MonoBehaviour {
 	public void addScore(int point)
 	{
 		this.currentScore += point;
-		Debug.Log(this.currentScore);
+		//Debug.Log(this.currentScore);
 	}
 
 	public int getCurrentScore()
