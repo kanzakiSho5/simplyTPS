@@ -27,6 +27,7 @@ public class BulletController : MonoBehaviour {
 			Destroy(this.gameObject);
 	}
 
+    /*
 	private void OnTriggerEnter(Collider col)
 	{
 		if(col.gameObject.tag == "Enemy")
@@ -43,7 +44,7 @@ public class BulletController : MonoBehaviour {
 			Destroy(this.gameObject);
 		}
 	}
-
+    */
 	public void Shot(Vector3 direct)
 	{
 		this.rigid.velocity = direct * this.speed * Time.deltaTime;
