@@ -1252,6 +1252,7 @@ MonoBehaviour:
   target: {fileID: 0}
   point: 1
   explosion: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
+  attackDistanceThreshold: 1036
 --- !u!136 &136328137734183212
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -2167,7 +2168,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 0.8
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 100

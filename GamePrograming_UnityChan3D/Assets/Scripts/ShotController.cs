@@ -42,7 +42,16 @@ public class ShotController : MonoBehaviour {
 				GameObject tmpBullet = Instantiate(this.bullet);
 				tmpBullet.transform.position = this.shotPoint.position;
 				BulletController bCon = tmpBullet.GetComponent<BulletController>();
-				bCon.Shot(this.transform.forward);
+                Vector3 dir = Vector3.zero;
+                if (Input.GetMouseButton(1))
+                {
+                    dir = Camera.main.transform.forward;
+                }
+                else
+                {
+                    dir = transform.forward;
+                }
+				bCon.Shot(dir);
 			}
 		}
 		else

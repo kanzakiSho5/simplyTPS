@@ -13,7 +13,6 @@ public class ScoreManager : MonoBehaviour {
 	{
 		get
 		{
-			Debug.Log(mInstance);
 			if(mInstance == null)
 			{
 				Debug.Log("Created ScoreManager");

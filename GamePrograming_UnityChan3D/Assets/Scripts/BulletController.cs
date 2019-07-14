@@ -46,6 +46,6 @@ public class BulletController : MonoBehaviour {
 
 	public void Shot(Vector3 direct)
 	{
-		this.rigid.velocity = direct * this.speed;
+		this.rigid.velocity = direct * this.speed * Time.deltaTime;
 	}
 }

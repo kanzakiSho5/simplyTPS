@@ -15,9 +15,10 @@ public class UnityChanController : MonoBehaviour {
 	[SerializeField]
 	private int invisibleTime = 60;
 
-	private CharacterController characterController;
+    private Camera cam;
+
+    private CharacterController characterController;
 	private Animator animator;
-	private Camera cam;
 
 	private int restInvisibleTime = 0;
 
@@ -25,14 +26,18 @@ public class UnityChanController : MonoBehaviour {
 	{
 		this.characterController = this.GetComponent<CharacterController>();
 		this.animator = this.GetComponent<Animator>();
-		this.cam = Camera.main;
+        this.cam = Camera.main;
 	}
 
 	private void Update()
 	{
 
 		AnimatorStateInfo animStateInfo = this.animator.GetCurrentAnimatorStateInfo(0);
-		if (animStateInfo.IsName("DAMAGE")) return;
+        if (animStateInfo.IsName("DAMAGE"))
+        {
+            print("damaged");
+            return;
+        }
 		if (this.restInvisibleTime > 0) this.restInvisibleTime--;
 
 		// 移動入力がない場合、関数を抜ける
@@ -45,15 +50,17 @@ public class UnityChanController : MonoBehaviour {
 		float v = Input.GetAxisRaw("Vertical");
 		float h = Input.GetAxisRaw("Horizontal");
 
-		Vector3 forward = this.cam.transform.forward;
-		forward.y = 0;
-		forward = forward.normalized;
+        
+        
+        Vector3 forward = this.cam.transform.forward;
+        forward.y = 0;
+        forward = forward.normalized;
 
-		Vector3 right = this.cam.transform.right;
-		right = right.normalized;
+        Vector3 right = this.cam.transform.right;
+        right = right.normalized;
 
-		Vector3 direct = forward * v + right * h;
-		direct.Normalize();
+        Vector3 direct = forward * v + right * h;
+        direct.Normalize();
 
 		Vector3 walkDirect = direct * this.walkSpeed;
 		if(Input.GetButton("RunTrigger"))
@@ -61,9 +68,11 @@ public class UnityChanController : MonoBehaviour {
 			walkDirect = direct * this.runSpeed;
 		}
 
-		this.characterController.SimpleMove(walkDirect);
+		this.characterController.Move(walkDirect * Time.deltaTime);
 
-		this.transform.rotation = Quaternion.LookRotation(direct);
+        if(!Input.GetMouseButton(1))
+		    this.transform.rotation = Quaternion.LookRotation(direct);
+            
 
 		float speed = walkDirect.magnitude;
 		this.animator.SetFloat("Speed",speed);
