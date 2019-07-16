@@ -23,8 +23,9 @@ public class UnityChanController : MonoBehaviour {
 	private int restInvisibleTime = 0;
 
 	private void Start()
-	{
-		this.characterController = this.GetComponent<CharacterController>();
+    {
+        print("PlayerController Onstart");
+        this.characterController = this.GetComponent<CharacterController>();
 		this.animator = this.GetComponent<Animator>();
         this.cam = Camera.main;
 	}
@@ -84,6 +85,8 @@ public class UnityChanController : MonoBehaviour {
 			return;
 		if (col.tag == "Enemy" && this.restInvisibleTime <= 0)
 		{
+            if (col.GetComponent<ZombieController>().isDead == true)
+                return;
 			this.animator.SetBool("IsDamage", true);
 			this.restInvisibleTime = this.invisibleTime;
 		}
