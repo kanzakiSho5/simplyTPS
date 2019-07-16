@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 195335825125550754}
   - component: {fileID: 114893360167743828}
   - component: {fileID: 95195501631977502}
+  - component: {fileID: 82792585899406344}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Enemy
@@ -625,10 +626,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4451113093238106}
   - component: {fileID: 137072775331780842}
+  - component: {fileID: 136684640297880396}
   - component: {fileID: 82867946445975210}
   m_Layer: 0
-  m_Name: ' Head'
-  m_TagString: Untagged
+  m_Name: Head
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -968,7 +970,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1540662188163174}
   m_LocalRotation: {x: -0.50000036, y: 0.49999967, z: 0.49999967, w: 0.50000036}
-  m_LocalPosition: {x: -0, y: 0.8729375, z: -0.0032746887}
+  m_LocalPosition: {x: 0, y: 0.8729376, z: -0.0032746792}
   m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 1}
   m_Children:
   - {fileID: 4541813193037806}
@@ -1332,6 +1334,86 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!82 &82792585899406344
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332524291480946}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!82 &82867946445975210
 AudioSource:
   m_ObjectHideFlags: 1
@@ -1442,9 +1524,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   point: 1
-  source: {fileID: 82437959288443706}
-  explosion: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
   attackDistanceThreshold: 1036
+  voice: {fileID: 82867946445975210}
+  walkSound: {fileID: 82437959288443706}
+  headshotSE: {fileID: 8300000, guid: e3be110924688be4c80552a36de74a23, type: 3}
 --- !u!136 &136328137734183212
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1454,10 +1537,23 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.2
-  m_Height: 1.8
+  m_Radius: 0.23
+  m_Height: 1.77
   m_Direction: 1
-  m_Center: {x: 0, y: 0.9, z: 0}
+  m_Center: {x: 0, y: 0.68, z: 0}
+--- !u!136 &136684640297880396
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1937656177677488}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.17696215
+  m_Height: 0.3077257
+  m_Direction: 1
+  m_Center: {x: -0.0000009630695, y: -0.01550594, z: 1.6402469}
 --- !u!137 &137072775331780842
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
