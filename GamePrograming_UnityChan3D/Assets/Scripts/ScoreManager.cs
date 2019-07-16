@@ -23,7 +23,13 @@ public class ScoreManager : MonoBehaviour {
 		set { }
 	}
 
-	public void initializeCurrentScore()
+    private void OnDisable()
+    {
+        Debug.Log("Destroy ScoreManager");
+        mInstance = null;
+    }
+
+    public void initializeCurrentScore()
 	{
 		this.currentScore = 0;
 	}
