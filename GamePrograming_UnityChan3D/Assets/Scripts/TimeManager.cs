@@ -22,8 +22,10 @@ public class TimeManager : MonoBehaviour {
 	}
 
 	private void Start()
-	{
-		this.isPlaying = true;
+    {
+        Time.timeScale = 1.0f;
+        print("TimeManager Onstart");
+        this.isPlaying = true;
 		this.restTime = this.gameTime;
 		this.timeText = this.GetComponent<Text>();
 		this.timeText.text = getRestTimeText();
@@ -50,7 +52,10 @@ public class TimeManager : MonoBehaviour {
 			if(Input.GetKeyDown(KeyCode.N))
 			{
 				Time.timeScale = 1.0f;
-				SceneManager.LoadScene(0);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                SceneManager.LoadSceneAsync(0);
+                
 			}
 
 		}
